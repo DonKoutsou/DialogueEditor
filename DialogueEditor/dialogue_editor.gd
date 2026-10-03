@@ -26,7 +26,8 @@ var currentY : float = 0
 var currentX : float = 0
 var optionsSpace : float = 0
 
-var history : EditorUndoRedoManager
+
+var history : UndoRedo
 
 static var startingDir : String
 
@@ -456,8 +457,8 @@ func OnNodeConnected(from_node: StringName, from_port: int, to_node: StringName,
 			
 	if (addToHistory):
 		history.create_action("Connect Nodes")
-		history.add_do_method(self, "OnNodeConnected", from_node, from_port, to_node, to_port, false)
-		history.add_undo_method(self, "OnNodeDisconnected", from_node, from_port, to_node, to_port, false)
+		history.add_do_method(OnNodeConnected.bind(from_node, from_port, to_node, to_port, false))
+		history.add_undo_method(OnNodeDisconnected.bind(from_node, from_port, to_node, to_port, false))
 		history.commit_action(false)
 	
 	graph.connect_node(from_node, from_port, to_node, to_port)
@@ -489,8 +490,8 @@ func OnNodeDisconnected(from_node: StringName, from_port: int, to_node: StringNa
 	
 	if (addToHistory):
 		history.create_action("Disconnect Nodes")
-		history.add_do_method(self, "OnNodeDisconnected", from_node, from_port, to_node, to_port, false)
-		history.add_undo_method(self, "OnNodeConnected", from_node, from_port, to_node, to_port, false)
+		history.add_do_method(OnNodeDisconnected.bind(from_node, from_port, to_node, to_port, false))
+		history.add_undo_method(OnNodeConnected.bind(from_node, from_port, to_node, to_port, false))
 		history.commit_action(false)
 	
 	graph.disconnect_node(from_node, from_port, to_node, to_port)

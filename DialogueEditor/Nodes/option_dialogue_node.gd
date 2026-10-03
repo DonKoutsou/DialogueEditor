@@ -123,15 +123,6 @@ func _on_world_view_setting_2_worldview_check_changed(newType: WorldView.WorldVi
 	
 	Changed.emit()
 
-
-func _on_editor_resource_picker_resource_selected(resource: Resource, inspect: bool) -> void:
-	EditorInterface.edit_resource(resource)
-
-
-func _on_option_picker_resource_selected(resource: Resource, inspect: bool) -> void:
-	EditorInterface.edit_resource(resource)
-
-
 func _on_option_picker_changed(t: String) -> void:
 	if (option == null):
 		ConfigureOption(load(t))

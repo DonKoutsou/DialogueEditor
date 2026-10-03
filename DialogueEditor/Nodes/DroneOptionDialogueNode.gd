@@ -19,10 +19,6 @@ func _on_dron_picker_resource_changed(resource: Resource) -> void:
 	Changed.emit()
 
 
-func _on_dron_picker_resource_selected(resource: Resource, inspect: bool) -> void:
-	EditorInterface.edit_resource(resource)
-
-
 func _on_drone_picker_changed(t: String) -> void:
 	var op : Drone_Happening_Option = option
 	op.Cpt = load(t)

@@ -67,18 +67,6 @@ func _on_text_picket_resource_changed(resource: Resource) -> void:
 	ConfigureStage(stage, resource)
 	Changed.emit()
 
-#------------------------------------------------------------------------
-func _on_editor_resource_picker_resource_selected(resource: Resource, inspect: bool) -> void:
-	EditorInterface.edit_resource(resource)
-
-#------------------------------------------------------------------------
-func _on_res_picker_resource_selected(resource: Resource, inspect: bool) -> void:
-	EditorInterface.edit_resource(resource)
-
-#------------------------------------------------------------------------
-func _on_text_picket_resource_selected(resource: Resource, inspect: bool) -> void:
-	EditorInterface.edit_resource(resource)
-
 
 func _on_happening_picker_changed(t: String) -> void:
 	ConfigureStage(load(t), text)
