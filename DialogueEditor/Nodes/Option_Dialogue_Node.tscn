@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bufavwhp5d2x8" path="res://DialogueEditor/Nodes/BaseDialogueNode.tscn" id="1_ywap6"]
 [ext_resource type="PackedScene" uid="uid://ok5fftx1n3nm" path="res://DialogueEditor/Nodes/Options/WorldViewSetting.tscn" id="2_55trq"]
 [ext_resource type="Script" uid="uid://brqxtija5iptx" path="res://DialogueEditor/Nodes/option_dialogue_node.gd" id="2_somq4"]
-[ext_resource type="PackedScene" uid="uid://sf4cxl8op2tv" path="res://PackerData/ResourcePicker.tscn" id="3_6t8sj"]
+[ext_resource type="PackedScene" uid="uid://sf4cxl8op2tv" path="res://MetalEngineBase/Utils/ResourcePicker.tscn" id="3_6t8sj"]
 [ext_resource type="PackedScene" uid="uid://bihlx76ys3py3" path="res://DialogueEditor/Nodes/Options/WorldViewCheckSetting.tscn" id="4_ea6oc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_somq4"]
@@ -31,7 +31,6 @@ text2 = NodePath("VBoxContainer/TextEdit2")
 [node name="OptionPicker" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="0" unique_id=316868228 instance=ExtResource("3_6t8sj")]
 layout_mode = 2
 resource_Tyoes = PackedStringArray("*.tres")
-resource_Class = "Happening_Option"
 
 [node name="Label" type="Label" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="1" unique_id=779253787]
 layout_mode = 2

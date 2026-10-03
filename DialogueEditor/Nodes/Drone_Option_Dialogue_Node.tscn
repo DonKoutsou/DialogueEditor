@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://du7aw36nkpvhd" path="res://DialogueEditor/Nodes/Option_Dialogue_Node.tscn" id="1_illsl"]
 [ext_resource type="Script" uid="uid://dvfyx6s7netn8" path="res://DialogueEditor/Nodes/DroneOptionDialogueNode.gd" id="2_mfiny"]
-[ext_resource type="PackedScene" uid="uid://sf4cxl8op2tv" path="res://PackerData/ResourcePicker.tscn" id="3_ytu11"]
+[ext_resource type="PackedScene" uid="uid://sf4cxl8op2tv" path="res://MetalEngineBase/Utils/ResourcePicker.tscn" id="3_ytu11"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfiny"]
 bg_color = Color(0.13340001, 0.37835, 0.46, 1)
@@ -24,7 +24,6 @@ resource_Tyoes = PackedStringArray()
 [node name="DronePicker" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="1" unique_id=64028817 instance=ExtResource("3_ytu11")]
 layout_mode = 2
 resource_Tyoes = PackedStringArray("*.tres")
-resource_Class = "Captain"
 
 [node name="EventPicker" parent="VBoxContainer/FoldableContainer3" parent_id_path=PackedInt32Array(1259064305) index="0" unique_id=1012211546]
 resource_Tyoes = PackedStringArray()

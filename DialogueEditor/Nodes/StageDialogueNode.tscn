@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnc8ljs1sfr3b" path="res://DialogueEditor/Nodes/StageDialogueNode.gd" id="1_bdjdn"]
 [ext_resource type="PackedScene" uid="uid://bufavwhp5d2x8" path="res://DialogueEditor/Nodes/BaseDialogueNode.tscn" id="2_ywap6"]
-[ext_resource type="PackedScene" uid="uid://sf4cxl8op2tv" path="res://PackerData/ResourcePicker.tscn" id="3_432ve"]
+[ext_resource type="PackedScene" uid="uid://sf4cxl8op2tv" path="res://MetalEngineBase/Utils/ResourcePicker.tscn" id="3_432ve"]
 
 [node name="BaseDialogueNode" unique_id=462244291 node_paths=PackedStringArray("resPicker", "textPicket", "textInput", "rich", "PicPicket", "texturePreview") groups=["DialogueNode"] instance=ExtResource("2_ywap6")]
 offset_left = -209.0
@@ -20,12 +20,10 @@ texturePreview = NodePath("VBoxContainer/FoldableContainer2/TextureRect")
 [node name="HappeningPicker" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="0" unique_id=316868228 instance=ExtResource("3_432ve")]
 layout_mode = 2
 resource_Tyoes = PackedStringArray("*.tres")
-resource_Class = "HappeningStage"
 
 [node name="TextPicker" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="1" unique_id=763444205 instance=ExtResource("3_432ve")]
 layout_mode = 2
 resource_Tyoes = PackedStringArray("*.tres")
-resource_Class = "HappeningText"
 
 [node name="Label" type="Label" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="2" unique_id=2118254818]
 layout_mode = 2
@@ -67,7 +65,6 @@ stretch_mode = 5
 visible = false
 layout_mode = 2
 resource_Tyoes = PackedStringArray("*.png", "*.svg", "*.jpeg", "*.jpg")
-resource_Class = "Texture"
 
 [connection signal="Changed" from="VBoxContainer/HappeningPicker" to="." method="_on_happening_picker_changed"]
 [connection signal="Changed" from="VBoxContainer/TextPicker" to="." method="_on_text_picker_changed"]
