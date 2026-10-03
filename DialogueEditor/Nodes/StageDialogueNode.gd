@@ -32,7 +32,15 @@ func ConfigureStage(st : HappeningStage, t : HappeningText) -> void:
 	
 	if (text.Pic != ""):
 		PicPicket.SetFile(text.Pic)
-		texturePreview.texture = load(text.Pic)
+		
+		if (!ResourceLoader.exists(text.Pic)):
+			var modDir : String = ProjectSettings.get_setting("application/config/mod_dir")
+			var finalLoc = text.Pic.replace("res:/", modDir)
+			var img = Image.load_from_file(finalLoc)
+			var tex = ImageTexture.create_from_image(img)
+			texturePreview.texture = tex
+		else:
+			texturePreview.texture = load(text.Pic)
 
 #------------------------------------------------------------------------
 func TextChanged(t : HappeningText) -> void:
@@ -79,5 +87,12 @@ func _on_text_picker_changed(t: String) -> void:
 
 func _on_textrure_picker_changed(t: String) -> void:
 	text.Pic = t
-	texturePreview.texture = load(t)
+	if (!ResourceLoader.exists(text.Pic)):
+		var modDir : String = ProjectSettings.get_setting("application/config/mod_dir")
+		var finalLoc = text.Pic.replace("res:/", modDir)
+		var img = Image.load_from_file(finalLoc)
+		var tex = ImageTexture.create_from_image(img)
+		texturePreview.texture = tex
+	else:
+		texturePreview.texture = load(text.Pic)
 	Changed.emit()

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c7olm28yv0d2v" path="res://DialogueEditor/DialogueEditor.tscn" id="4_60fes"]
 
 [node name="Main" type="PanelContainer" unique_id=2109229134 node_paths=PackedStringArray("resPicker", "BasePackPicker")]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -43,9 +44,12 @@ text = "Base Pack"
 [node name="BasePack" parent="MarginContainer/VBoxContainer" unique_id=1197810020 instance=ExtResource("3_hy538")]
 layout_mode = 2
 size_flags_vertical = 4
+resource_Tyoes = PackedStringArray("*.pck")
 
 [node name="Ready" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1994471850]
 layout_mode = 2
 text = "Ready"
 
+[connection signal="Changed" from="MarginContainer/VBoxContainer/ResourcePicker" to="." method="_on_resource_picker_changed"]
+[connection signal="Changed" from="MarginContainer/VBoxContainer/BasePack" to="." method="_on_base_pack_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Ready" to="." method="_on_ready_pressed"]

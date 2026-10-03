@@ -31,6 +31,7 @@ func _ready() -> void:
 	BasePackPicker.SetFile(dirs.BaseDataDir)
 	#ModPackPicker.SetFile(dirs.ModPackDir)
 	resPicker.SetFile(dirs.ModDir)
+	ProjectSettings.set_setting("application/config/mod_dir", dirs.ModDir)
 
 func _on_ready_pressed() -> void:
 	if (dirs.ModDir.is_empty()):
@@ -102,6 +103,7 @@ func _on_resource_picker_changed(t: String) -> void:
 	dirs.ModDir = t
 	ResourceSaver.save(dirs, execPath + "SavedDir.tres")
 	print("Captain Directory changed to {0}".format([t]))
+	ProjectSettings.set_setting("application/config/mod_dir", dirs.ModDir)
 
 
 func _on_mod_pack_changed(t: String) -> void:

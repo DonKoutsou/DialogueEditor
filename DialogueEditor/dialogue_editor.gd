@@ -84,12 +84,12 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 
 func _on_happening_apearance_item_selected(index: int) -> void:
 	var hap : Happening = Happenings[currentHappening]
-	hap.HappeningAppearance = index
+	hap.HappeningAppearance = Happening.GameStage.keys()[index]
 	ResaveHappening()
 	
 func _on_spin_box_value_changed(value: float) -> void:
 	var hap : Happening = Happenings[currentHappening]
-	hap.AllowedAppearances = value
+	hap.AllowedAppearances = Happening.GameStage.keys()[value]
 	ResaveHappening()
 
 func _on_recruit_box_toggled(toggled_on: bool) -> void:
