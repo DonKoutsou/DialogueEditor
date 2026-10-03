@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://du7aw36nkpvhd"]
 
-[ext_resource type="PackedScene" uid="uid://bufavwhp5d2x8" path="res://addons/MC_DialogueEditor/Nodes/BaseDialogueNode.tscn" id="1_ywap6"]
-[ext_resource type="PackedScene" uid="uid://ok5fftx1n3nm" path="res://addons/MC_DialogueEditor/Nodes/Options/WorldViewSetting.tscn" id="2_55trq"]
-[ext_resource type="Script" uid="uid://brqxtija5iptx" path="res://addons/MC_DialogueEditor/Nodes/option_dialogue_node.gd" id="2_somq4"]
-[ext_resource type="PackedScene" uid="uid://bihlx76ys3py3" path="res://addons/MC_DialogueEditor/Nodes/Options/WorldViewCheckSetting.tscn" id="4_ea6oc"]
+[ext_resource type="PackedScene" uid="uid://bufavwhp5d2x8" path="res://DialogueEditor/Nodes/BaseDialogueNode.tscn" id="1_ywap6"]
+[ext_resource type="PackedScene" uid="uid://ok5fftx1n3nm" path="res://DialogueEditor/Nodes/Options/WorldViewSetting.tscn" id="2_55trq"]
+[ext_resource type="Script" uid="uid://brqxtija5iptx" path="res://DialogueEditor/Nodes/option_dialogue_node.gd" id="2_somq4"]
+[ext_resource type="PackedScene" uid="uid://sf4cxl8op2tv" path="res://PackerData/ResourcePicker.tscn" id="3_6t8sj"]
+[ext_resource type="PackedScene" uid="uid://bihlx76ys3py3" path="res://DialogueEditor/Nodes/Options/WorldViewCheckSetting.tscn" id="4_ea6oc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_somq4"]
 bg_color = Color(0.46069676, 0.4530424, 0.13253018, 1)
@@ -23,13 +24,14 @@ theme_override_styles/titlebar = SubResource("StyleBoxFlat_somq4")
 script = ExtResource("2_somq4")
 worldViewSet = NodePath("VBoxContainer/FoldableContainer/WorldViewSetting")
 worldvewCheckSet = NodePath("VBoxContainer/FoldableContainer2/WorldViewSetting2")
-resPicker = NodePath("VBoxContainer/EditorResourcePicker")
+resPicker = NodePath("VBoxContainer/OptionPicker")
 textInput = NodePath("VBoxContainer/TextEdit")
 text2 = NodePath("VBoxContainer/TextEdit2")
 
-[node name="EditorResourcePicker" type="EditorResourcePicker" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="0" unique_id=207230605]
+[node name="OptionPicker" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="0" unique_id=316868228 instance=ExtResource("3_6t8sj")]
 layout_mode = 2
-base_type = "Happening_Option"
+resource_Tyoes = PackedStringArray("*.tres")
+resource_Class = "Happening_Option"
 
 [node name="Label" type="Label" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="1" unique_id=779253787]
 layout_mode = 2
@@ -56,10 +58,10 @@ layout_mode = 2
 folded = true
 title = "Overworld Event"
 
-[node name="OptionPicker" type="EditorResourcePicker" parent="VBoxContainer/FoldableContainer3" index="0" unique_id=1869046184]
+[node name="EventPicker" parent="VBoxContainer/FoldableContainer3" index="0" unique_id=1012211546 instance=ExtResource("3_6t8sj")]
 visible = false
 layout_mode = 2
-base_type = "OverworldEventData"
+resource_Tyoes = PackedStringArray("*.tres")
 
 [node name="FoldableContainer" type="FoldableContainer" parent="VBoxContainer" parent_id_path=PackedInt32Array(887160852) index="6" unique_id=767895579]
 layout_mode = 2
@@ -79,11 +81,10 @@ title = "Worldview Check"
 visible = false
 layout_mode = 2
 
-[connection signal="resource_changed" from="VBoxContainer/EditorResourcePicker" to="." method="_on_editor_resource_picker_resource_changed"]
-[connection signal="resource_selected" from="VBoxContainer/EditorResourcePicker" to="." method="_on_editor_resource_picker_resource_selected"]
+[connection signal="Changed" from="VBoxContainer/OptionPicker" to="." method="_on_option_picker_changed"]
 [connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="VBoxContainer/TextEdit2" to="." method="_on_text_edit_2_text_changed"]
-[connection signal="resource_selected" from="VBoxContainer/FoldableContainer3/OptionPicker" to="." method="_on_option_picker_resource_selected"]
+[connection signal="Changed" from="VBoxContainer/FoldableContainer3/EventPicker" to="." method="_on_event_picker_changed"]
 [connection signal="EffectAmmountChanged" from="VBoxContainer/FoldableContainer/WorldViewSetting" to="." method="_on_world_view_setting_effect_ammount_changed"]
 [connection signal="WorldViewChanged" from="VBoxContainer/FoldableContainer/WorldViewSetting" to="." method="_on_world_view_setting_world_view_changed"]
 [connection signal="worldviewCheckAmmountChanged" from="VBoxContainer/FoldableContainer2/WorldViewSetting2" to="." method="_on_world_view_setting_2_worldview_check_ammount_changed"]

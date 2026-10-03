@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c7olm28yv0d2v"]
 
-[ext_resource type="Script" uid="uid://bw0q8eilaqb21" path="res://addons/MC_DialogueEditor/dialogue_editor.gd" id="1_0guqq"]
-[ext_resource type="PackedScene" uid="uid://pwoqxtfwhr2v" path="res://addons/MC_DialogueEditor/Nodes/StageDialogueNode.tscn" id="2_4fswy"]
-[ext_resource type="PackedScene" uid="uid://du7aw36nkpvhd" path="res://addons/MC_DialogueEditor/Nodes/Option_Dialogue_Node.tscn" id="3_4fswy"]
-[ext_resource type="PackedScene" uid="uid://cqp8qfieoro8j" path="res://addons/MC_DialogueEditor/Nodes/RecruitLocator_Option_Dialogue_Node.tscn" id="4_d363k"]
-[ext_resource type="PackedScene" uid="uid://bimhkxi6xqud2" path="res://addons/MC_DialogueEditor/Nodes/VillageLocator_Option_Dialogue_Node.tscn" id="5_nf1pn"]
-[ext_resource type="PackedScene" uid="uid://dqbsjishecal0" path="res://addons/MC_DialogueEditor/Nodes/Start_dialogue_node.tscn" id="6_lcpc0"]
-[ext_resource type="PackedScene" uid="uid://cc46dbpqtqa51" path="res://addons/MC_DialogueEditor/Nodes/Drone_Option_Dialogue_Node.tscn" id="7_gt7ck"]
+[ext_resource type="Script" uid="uid://bw0q8eilaqb21" path="res://DialogueEditor/dialogue_editor.gd" id="1_0guqq"]
+[ext_resource type="PackedScene" uid="uid://pwoqxtfwhr2v" path="res://DialogueEditor/Nodes/StageDialogueNode.tscn" id="2_4fswy"]
+[ext_resource type="PackedScene" uid="uid://du7aw36nkpvhd" path="res://DialogueEditor/Nodes/Option_Dialogue_Node.tscn" id="3_4fswy"]
+[ext_resource type="PackedScene" uid="uid://cqp8qfieoro8j" path="res://DialogueEditor/Nodes/RecruitLocator_Option_Dialogue_Node.tscn" id="4_d363k"]
+[ext_resource type="PackedScene" uid="uid://bimhkxi6xqud2" path="res://DialogueEditor/Nodes/VillageLocator_Option_Dialogue_Node.tscn" id="5_nf1pn"]
+[ext_resource type="PackedScene" uid="uid://dqbsjishecal0" path="res://DialogueEditor/Nodes/Start_dialogue_node.tscn" id="6_lcpc0"]
+[ext_resource type="PackedScene" uid="uid://cc46dbpqtqa51" path="res://DialogueEditor/Nodes/Drone_Option_Dialogue_Node.tscn" id="7_gt7ck"]
 
 [node name="DialogueEditor" type="Control" unique_id=1974082853 node_paths=PackedStringArray("graph", "Menu", "NodeMenu", "CurrentHappeningLabel", "HapName", "ApearanceMenu", "MandatoryLoc", "SpecialCheck", "RecruitCheck", "AllowedApBox")]
 layout_mode = 3
@@ -61,19 +61,6 @@ layout_mode = 2
 oversampling_override = 1.0
 title = "Add Node"
 size = Vector2i(217, 444)
-item_count = 6
-item_0/text = "NORMAL"
-item_0/id = 0
-item_1/text = "OPTION"
-item_1/id = 1
-item_2/text = "REC_LOC"
-item_2/id = 2
-item_3/text = "VIL_LOC"
-item_3/id = 3
-item_4/text = "START"
-item_4/id = 4
-item_5/text = "DRONE_OPTION"
-item_5/id = 5
 
 [node name="PopupMenu" type="PopupMenu" parent="HBoxContainer2/VBoxContainer/HBoxContainer/MenuBar" unique_id=1870119649]
 oversampling_override = 1.0
@@ -161,56 +148,6 @@ autowrap_mode = 2
 
 [node name="HappeningApearance" type="OptionButton" parent="HBoxContainer2/PanelContainer/VBoxContainer" unique_id=618636346]
 layout_mode = 2
-selected = 0
-item_count = 24
-popup/item_0/text = "EARLY"
-popup/item_0/id = 0
-popup/item_1/text = "SEMI_EARLY"
-popup/item_1/id = 1
-popup/item_2/text = "MID"
-popup/item_2/id = 2
-popup/item_3/text = "SEMI_LATE"
-popup/item_3/id = 3
-popup/item_4/text = "LATE"
-popup/item_4/id = 4
-popup/item_5/text = "ANY"
-popup/item_5/id = 5
-popup/item_6/text = "EARLY"
-popup/item_6/id = 6
-popup/item_7/text = "SEMI_EARLY"
-popup/item_7/id = 7
-popup/item_8/text = "MID"
-popup/item_8/id = 8
-popup/item_9/text = "SEMI_LATE"
-popup/item_9/id = 9
-popup/item_10/text = "LATE"
-popup/item_10/id = 10
-popup/item_11/text = "ANY"
-popup/item_11/id = 11
-popup/item_12/text = "EARLY"
-popup/item_12/id = 12
-popup/item_13/text = "SEMI_EARLY"
-popup/item_13/id = 13
-popup/item_14/text = "MID"
-popup/item_14/id = 14
-popup/item_15/text = "SEMI_LATE"
-popup/item_15/id = 15
-popup/item_16/text = "LATE"
-popup/item_16/id = 16
-popup/item_17/text = "ANY"
-popup/item_17/id = 17
-popup/item_18/text = "EARLY"
-popup/item_18/id = 18
-popup/item_19/text = "SEMI_EARLY"
-popup/item_19/id = 19
-popup/item_20/text = "MID"
-popup/item_20/id = 20
-popup/item_21/text = "SEMI_LATE"
-popup/item_21/id = 21
-popup/item_22/text = "LATE"
-popup/item_22/id = 22
-popup/item_23/text = "ANY"
-popup/item_23/id = 23
 
 [node name="Label3" type="Label" parent="HBoxContainer2/PanelContainer/VBoxContainer" unique_id=1729665800]
 layout_mode = 2

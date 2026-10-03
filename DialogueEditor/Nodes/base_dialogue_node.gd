@@ -3,9 +3,6 @@ extends GraphNode
 
 class_name BaseDialogueNode
 
-const PORT_LEFT_ICON := preload("res://addons/beehave/debug/icons/port_left.svg")
-const PORT_RIGHT_ICON := preload("res://addons/beehave/debug/icons/port_right.svg")
-
 signal Changed
 
 func _on_delete_request() -> void:

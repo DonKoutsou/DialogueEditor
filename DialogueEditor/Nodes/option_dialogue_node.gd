@@ -5,7 +5,7 @@ class_name OptionDialogueNode
 
 @export var worldViewSet : WorldViewSetting
 @export var worldvewCheckSet : WorldViewCheckSetting
-@export var resPicker : EditorResourcePicker
+@export var resPicker : ResourcePicker
 @export var textInput : TextEdit
 @export var text2 : TextEdit
 
@@ -14,7 +14,7 @@ var option : Happening_Option
 var currentlyUpdating : bool = false
 
 func ConfigureOption(options : Happening_Option) -> void:
-	resPicker.edited_resource = options
+	resPicker.SetFile(options.resource_path)
 	worldViewSet.SetWorldView(options.WorldviewEffect, options.WorldviewEffectAmm)
 	option = options
 	option.changed.connect(OptionChanged.bind(option))
@@ -130,3 +130,29 @@ func _on_editor_resource_picker_resource_selected(resource: Resource, inspect: b
 
 func _on_option_picker_resource_selected(resource: Resource, inspect: bool) -> void:
 	EditorInterface.edit_resource(resource)
+
+
+func _on_option_picker_changed(t: String) -> void:
+	if (option == null):
+		ConfigureOption(load(t))
+	else:
+		var opt : Happening_Option = load(t)
+		opt.OptionName = option.OptionName
+		opt.FinishDiag = option.FinishDiag
+		opt.Event = option.Event
+		opt.Branch = option.Branch
+		opt.WorldviewEffect = option.WorldviewEffect
+		opt.WorldviewEffectAmm = option.WorldviewEffectAmm
+		opt.WorldviewCheck = option.WorldviewCheck
+		opt.CheckPossetive = option.CheckPossetive
+		opt.CheckDifficulty = option.CheckDifficulty
+		opt.WorldViewFailBranch = option.WorldViewFailBranch
+		opt.ReverseEffectOnFail = option.ReverseEffectOnFail
+		
+		if (opt is String_Happening_Option and option is String_Happening_Option):
+			opt.StringReply = option.StringReply
+		ConfigureOption(opt)
+
+
+func _on_event_picker_changed(t: String) -> void:
+	pass # Replace with function body.

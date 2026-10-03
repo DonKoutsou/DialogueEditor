@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqbsjishecal0"]
 
-[ext_resource type="PackedScene" uid="uid://bufavwhp5d2x8" path="res://addons/MC_DialogueEditor/Nodes/BaseDialogueNode.tscn" id="1_6hlml"]
+[ext_resource type="PackedScene" uid="uid://bufavwhp5d2x8" path="res://DialogueEditor/Nodes/BaseDialogueNode.tscn" id="1_6hlml"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y207x"]
 bg_color = Color(0.4976594, 0.19265911, 0.99999994, 1)

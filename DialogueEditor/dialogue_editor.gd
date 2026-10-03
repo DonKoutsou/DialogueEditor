@@ -28,6 +28,8 @@ var optionsSpace : float = 0
 
 var history : EditorUndoRedoManager
 
+static var startingDir : String
+
 enum NodeType{
 	NORMAL,
 	OPTION,
@@ -122,7 +124,7 @@ func _exit_tree() -> void:
 func UpdateDilogues() -> void:
 	Menu.clear()
 	Happenings.clear()
-	var DirsToExplore :Array[String] = ["res://Resources/Happenings/"]
+	var DirsToExplore :Array[String] = [startingDir + "/Resources/Happenings/"]
 	for g in DirsToExplore:
 		var dir = DirAccess.open(g)
 		if dir:
@@ -134,10 +136,11 @@ func UpdateDilogues() -> void:
 					DirsToExplore.append(g + "/" + file_name)
 				else:
 					print("Found file: " + file_name)
-					var hap = load(g + "/" + file_name)
-					if (hap is Happening):
-						Happenings.append(hap)
-						Menu.add_item(hap.HappeningName)
+					if (file_name.ends_with(".tres")):
+						var hap = load(g + "/" + file_name)
+						if (hap is Happening):
+							Happenings.append(hap)
+							Menu.add_item(hap.HappeningName)
 				
 				file_name = dir.get_next()
 
@@ -365,7 +368,7 @@ func CreateDialogueNode(type : NodeType = NodeType.NORMAL, posOverride : Vector2
 func ResaveHappening() -> void:
 	GenerateHappening()
 	ResourceSaver.save(Happenings[currentHappening], Happenings[currentHappening].resource_path)
-	EditorInterface.get_editor_toaster().push_toast("Happening Saved !")
+	print("Happening Saved at {0}!".format([Happenings[currentHappening].resource_path]))
 	#graph.arrange_nodes()
 
 #--------------------------------------------------------

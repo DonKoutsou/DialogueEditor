@@ -1,31 +1,35 @@
-[gd_scene format=3 uid="uid://ok5fftx1n3nm"]
+[gd_scene format=3 uid="uid://bihlx76ys3py3"]
 
-[ext_resource type="Script" uid="uid://b31abenkebj6w" path="res://addons/MC_DialogueEditor/Nodes/Options/world_view_setting.gd" id="1_gv7u0"]
+[ext_resource type="Script" uid="uid://c50nl6dgwd55" path="res://DialogueEditor/Nodes/Options/world_view_check_setting.gd" id="1_jj4hg"]
 
-[node name="WorldViewSetting" type="PanelContainer" unique_id=327963563 node_paths=PackedStringArray("menu", "valueLabel", "slid")]
+[node name="WorldViewSetting" type="PanelContainer" unique_id=327963563 node_paths=PackedStringArray("menu", "valueLabel", "slid", "possitiveCheckBox")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -25.0
-offset_right = 59.0
-offset_bottom = 25.0
+offset_left = -94.0
+offset_top = -32.0
+offset_right = 94.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gv7u0")
-menu = NodePath("HBoxContainer/OptionButton")
+script = ExtResource("1_jj4hg")
+menu = NodePath("HBoxContainer/HBoxContainer2/OptionButton")
 valueLabel = NodePath("HBoxContainer/HBoxContainer/Label")
 slid = NodePath("HBoxContainer/HBoxContainer/HSlider")
+possitiveCheckBox = NodePath("HBoxContainer/HBoxContainer2/CheckBox")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=241001414]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer" unique_id=738136001]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer" unique_id=2113499316]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/HBoxContainer2" unique_id=679066]
 layout_mode = 2
 selected = 0
-item_count = 18
+item_count = 30
 popup/item_0/text = "NONE"
 popup/item_0/id = 0
 popup/item_1/text = "COMPOSURE_AGITATION"
@@ -62,6 +66,33 @@ popup/item_16/text = "FORCE_INSPIRATION"
 popup/item_16/id = 16
 popup/item_17/text = "MAN_MACHINE"
 popup/item_17/id = 17
+popup/item_18/text = "NONE"
+popup/item_18/id = 18
+popup/item_19/text = "COMPOSURE_AGITATION"
+popup/item_19/id = 19
+popup/item_20/text = "LOGIC_BELIEF"
+popup/item_20/id = 20
+popup/item_21/text = "EMPATHY_EGO"
+popup/item_21/id = 21
+popup/item_22/text = "FORCE_INSPIRATION"
+popup/item_22/id = 22
+popup/item_23/text = "MAN_MACHINE"
+popup/item_23/id = 23
+popup/item_24/text = "NONE"
+popup/item_24/id = 24
+popup/item_25/text = "COMPOSURE_AGITATION"
+popup/item_25/id = 25
+popup/item_26/text = "LOGIC_BELIEF"
+popup/item_26/id = 26
+popup/item_27/text = "EMPATHY_EGO"
+popup/item_27/id = 27
+popup/item_28/text = "FORCE_INSPIRATION"
+popup/item_28/id = 28
+popup/item_29/text = "MAN_MACHINE"
+popup/item_29/id = 29
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/HBoxContainer2" unique_id=852226913]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=988714515]
 layout_mode = 2
@@ -69,7 +100,6 @@ layout_mode = 2
 [node name="HSlider" type="HSlider" parent="HBoxContainer/HBoxContainer" unique_id=2123447373]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -100.0
 
 [node name="Label" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=570348705]
 custom_minimum_size = Vector2(50, 0)
@@ -78,5 +108,6 @@ text = "-100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="item_selected" from="HBoxContainer/OptionButton" to="." method="_on_popup_menu_index_pressed"]
+[connection signal="item_selected" from="HBoxContainer/HBoxContainer2/OptionButton" to="." method="_on_popup_menu_index_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer2/CheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="value_changed" from="HBoxContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bufavwhp5d2x8"]
 
-[ext_resource type="Script" uid="uid://c1sl37wn0gufe" path="res://addons/MC_DialogueEditor/Nodes/base_dialogue_node.gd" id="1_d5jih"]
+[ext_resource type="Script" uid="uid://c1sl37wn0gufe" path="res://DialogueEditor/Nodes/base_dialogue_node.gd" id="1_d5jih"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fswy"]
 bg_color = Color(0.23778024, 0.2377801, 0.2377801, 1)
